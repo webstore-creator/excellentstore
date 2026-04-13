@@ -71,3 +71,27 @@ body::after{
   from { background-position:0 0; }
   to   { background-position:0 -400px; }
 }
+
+/* ===== POPUP ===== */
+
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.popup-box{
+  background:#0b140b;
+  border:3px solid #4fa800;
+  padding:30px;
+  text-align:center;
+  box-shadow:0 0 20px #9cff00;
+}
+
+.popup button{
+  margin-top:10px;
+}
