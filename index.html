@@ -74,10 +74,34 @@ button:hover{background:var(--green);color:black}
 </div>
 </section>
 
+<section class="box">
+<h2>ITEM SHOP</h2>
+<div class="grid">
+<div class="card">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAIAAAD6XpeDAAAIw0lEQVR4AeydW2xUVRSGB6EZKK2dmV" style="width:80px;image-rendering:pixelated"><br>
+<h3>Amethyst Pickaxe</h3>
+<div class="price">4.99 GEL</div>
+<input id="discord2" placeholder="Discord username">
+<input id="minecraft2" placeholder="Minecraft username">
+<button onclick="sendItem()">BUY ITEM</button>
+</div>
+</div>
+</section>
+
 <div class="footer">© ExcellentSMP</div>
 
 <script>
-const webhookURL = "https://discord.com/api/webhooks/1493365597763797143/vwQHZhmopuSXdu-yzJXbHtYWUk1MA_OMMYDg2-FH1iF7gnAMz5CO4FdxmWD4j3YeoIZ9"; // IMPORTANT: replace this
+function sendItem(){
+  const discord=document.getElementById('discord2').value;
+  const mc=document.getElementById('minecraft2').value;
+  if(!discord||!mc){alert('Fill all fields');return;}
+  fetch(webhookURL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({content:`🛒 **Item Purchase**\nItem: Amethyst Pickaxe\nDiscord: ${discord}\nMinecraft: ${mc}\nPrice: 4.99 GEL`})});
+  alert('Request sent!');
+}
+</script>
+
+<script>
+const webhookURL = "https://discord.com/api/webhooks/REPLACE_ME"; // IMPORTANT: replace this
 const ip='excellentsmp.mineserver.uno';
 
 function sendRequest(){
